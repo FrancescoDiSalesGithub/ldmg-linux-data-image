@@ -4,16 +4,16 @@ LDMG_FILE="$1"
 MOUNT_POINT="/media$LDMG_FILE"
 
 
-LOOP_DEV=$(losetup -f)
+LOOP_DEV=$(losetup -f --show "$LDMG_FILE")
 
 
-pkexec losetup "$LOOP_DEV" "$LDMG_FILE";mkdir -p "$MOUNT_POINT";mount "$LOOP_DEV"  "$MOUNT_POINT";udisksctl mount -b "$LOOP_DEV"
 
+pkexec losetup -f --show "$LDMG_FILE";mkdir -p "$MOUNT_POINT";mount "$LOOP_DEV"  "$MOUNT_POINT";udisksctl mount -b "$LOOP_DEV"
 
 if [ $? -eq 0 ]; then
     notify-send "LDMG Mounted" "$LDMG_FILE mounted at $MOUNT_POINT"
+    sudo chmod 660 $MOUNT_POINT
 else
     notify-send "LDMG Mount Failed" "Disk already mounted"
 fi
 
-                                
