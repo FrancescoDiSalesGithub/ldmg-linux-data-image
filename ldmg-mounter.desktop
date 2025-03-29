@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=LDMG Mounter
+Exec=/usr/local/bin/mount-ldmg.sh %f
+Type=Application
+MimeType=application/x-ldmg
+NoDisplay=true
+
