@@ -3,7 +3,7 @@
     <mime-type type="application/x-ldmg">
         <comment>LDMG Disk Image</comment>
         <glob pattern="*.ldmg"/>
-        <icon name="application-x-ldmg"/>
+        <generic-icon name="package-x-generic"/>
     </mime-type>
 </mime-info>
                
