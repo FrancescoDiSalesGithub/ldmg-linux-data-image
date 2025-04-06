@@ -8,9 +8,7 @@ LOOP_DEV=$(losetup -f --show "$LDMG_FILE")
 
 
 
-pkexec losetup -f --show "$LDMG_FILE";mkdir -p "$MOUNT_POINT";mount "$LOOP_DEV"  "$MOUNT_POINT";udisksctl mount -b "$LOOP_DEV"
+pkexec losetup -f --show "$LDMG_FILE";mkdir -p "$MOUNT_POINT";mount "$LOOP_DEV"  "$MOUNT_POINT";udisksctl mount -b "$LOOP_DEV"; chmod 660 $MOUNT_POINT
+notify-send "LDMG Mounted" "$LDMG_FILE mounted at $MOUNT_POINT"
 
-
-    notify-send "LDMG Mounted" "$LDMG_FILE mounted at $MOUNT_POINT"
-    sudo chmod 660 $MOUNT_POINT
 
