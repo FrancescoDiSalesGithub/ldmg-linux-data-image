@@ -15,3 +15,4 @@ then
 
 else
 echo "run this script as root user"
+fi
